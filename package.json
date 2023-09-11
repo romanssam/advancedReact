@@ -5,6 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npx webpack build",
+    "build:prod": "webpack --env mode=production",
+    "build:dev": "webpack --env mode=development",
+    "start": "webpack serve --env port=3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
