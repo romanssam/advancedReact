@@ -1,0 +1,16 @@
+@import "reset";
+@import "variables/global";
+@import "themes/default";
+@import "themes/dark";
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  color: var(--colors-text);
+
+  font-family: var(--family);
+  font-weight: var(--fw-light);
+  background-color: var(--colors-bg);
+}
