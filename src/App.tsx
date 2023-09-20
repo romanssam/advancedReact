@@ -1,16 +1,14 @@
-import React, { Suspense, useState } from 'react';
+import React, {Suspense, useContext, useState} from 'react';
 import Counter from "./components/Counter";
 import { Routes, Route, Link } from "react-router-dom";
 import './styles/index.scss'
 import {MainPageLazy} from "./pages/MainPage/MainPage.lazy";
 import {AboutPageLazy} from "./pages/AboutPage/AboutPage.lazy";
+import {Theme, ThemeContext} from "./theme/ThemeContext";
+import {useTheme} from "./theme/useTheme";
 
 const App = () => {
-    const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
-
-    const toggleTheme = () => {
-        setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
-    }
+    const {theme, toggleTheme} = useTheme()
 
     return (
         <div className='app' data-theme={theme}>
