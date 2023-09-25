@@ -1,6 +1,10 @@
 [data-theme='light'] {
   --colors-text: hsl(200, 15%, 8%);
   --colors-bg: hsl(0, 0%, 98%);
+
+  --colors-text-inverted: hsl(0, 0%, 98%);
+  --colors-bg-inverted: hsl(200, 15%, 8%);
+
   --colors-ui-base: hsl(0, 0%, 100%);
 
   --shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
