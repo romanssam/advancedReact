@@ -1,9 +1,10 @@
 import React, {Suspense, useContext, useState} from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import 'styles/index.scss'
-import {MainPageLazy} from "pages/MainPage/MainPage.lazy";
-import {AboutPageLazy} from "pages/AboutPage/AboutPage.lazy";
+import './styles/index.scss';
 import {useTheme} from "app/providers/ThemeProvider";
+import {AboutPage} from "pages/AboutPage";
+import {MainPage} from "pages/MainPage";
+import {AppRouter} from "app/providers/router";
 
 const App = () => {
     const {theme, toggleTheme} = useTheme()
@@ -12,12 +13,7 @@ const App = () => {
         <div className='app' data-theme={theme}>
             <Link to={'/'}>Main page</Link>
             <Link to={'/about'}>About page</Link>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path='/' element={<MainPageLazy />} />
-                    <Route path='/about' element={<AboutPageLazy />} />
-                </Routes>
-            </Suspense>
+            <AppRouter />
             <button onClick={toggleTheme}>Сменить тему</button>
         </div>
     );
