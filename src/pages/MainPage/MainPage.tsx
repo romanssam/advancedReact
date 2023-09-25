@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import Counter from "../../components/Counter";
+import React from 'react';
 
 interface themeProps {
     theme: string;
@@ -10,7 +9,6 @@ const MainPage = () => {
         <div>
             Main Page
             <input type="text" placeholder={'test'}/>
-            <Counter />
         </div>
     );
 };

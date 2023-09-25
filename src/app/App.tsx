@@ -1,11 +1,9 @@
 import React, {Suspense, useContext, useState} from 'react';
-import Counter from "./components/Counter";
 import { Routes, Route, Link } from "react-router-dom";
-import './styles/index.scss'
-import {MainPageLazy} from "./pages/MainPage/MainPage.lazy";
-import {AboutPageLazy} from "./pages/AboutPage/AboutPage.lazy";
-import {Theme, ThemeContext} from "./theme/ThemeContext";
-import {useTheme} from "./theme/useTheme";
+import 'styles/index.scss'
+import {MainPageLazy} from "pages/MainPage/MainPage.lazy";
+import {AboutPageLazy} from "pages/AboutPage/AboutPage.lazy";
+import {useTheme} from "app/providers/ThemeProvider";
 
 const App = () => {
     const {theme, toggleTheme} = useTheme()
