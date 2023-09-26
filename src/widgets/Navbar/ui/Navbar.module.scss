@@ -4,9 +4,12 @@
   display: flex;
   align-items: center;
   gap: 2rem;
-  background-color: var(--colors-bg-inverted);
+  background-color: var(--colors-bg);
 
-  color: var(--colors-text-inverted);
+  color: var(--colors-text);
 
   box-shadow: var(--shadow);
+
+  font-weight: 600;
+  font-size: 14px;
 }
