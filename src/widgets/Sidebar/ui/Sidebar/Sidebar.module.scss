@@ -1,0 +1,12 @@
+.Sidebar {
+  background-color: var(--colors-bg);
+  width: var(--sidebar-width);
+  height: calc(100vh - 65px);
+  box-shadow: var(--shadow);
+
+  transition: width .4s ease;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}

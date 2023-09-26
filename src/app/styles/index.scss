@@ -14,3 +14,12 @@
   font-weight: var(--fw-light);
   background-color: var(--colors-bg);
 }
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 24px;
+}
