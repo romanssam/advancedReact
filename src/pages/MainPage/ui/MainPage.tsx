@@ -1,5 +1,4 @@
 import React from 'react';
-import {PageLoader} from "widgets/PageLoader/ui/PageLoader";
 
 interface themeProps {
     theme: string;
