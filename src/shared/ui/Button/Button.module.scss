@@ -1,5 +1,5 @@
 .Button {
-
+  cursor: pointer;
 }
 
 .clear {
@@ -12,4 +12,16 @@
   margin: 0;
 
   color: var(--colors-text);
+}
+
+.background {
+  background-color: var(--colors-bg);
+  color: var(--colors-text);
+  border: none;
+}
+
+.backgroundInverted {
+  background-color: var(--colors-bg-inverted);
+  color: var(--colors-text-inverted);
+  border: none;
 }
