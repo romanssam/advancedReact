@@ -1,4 +1,4 @@
-import {classNames} from "./classNames";
+import {classNames} from "shared/lib/classNames/classNames";
 
 describe('Хелпер classNames', () => {
     test('Тест с 1 параметром', () => {
