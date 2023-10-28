@@ -27,7 +27,8 @@
   max-width: 50%;
 
   background-color: var(--colors-bg);
-  transition: transform .4s ease;
+  color: var(--colors-text);
+  transition: transform .3s ease;
   transform: scale(0.5);
 }
 
@@ -36,7 +37,7 @@
   opacity: 1;
   pointer-events: all;
   .body {
-    transition: transform .4s ease;
+    transition: transform .3s ease;
     transform: scale(1);
   }
 }
