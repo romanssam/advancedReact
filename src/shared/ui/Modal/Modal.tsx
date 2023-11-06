@@ -32,7 +32,8 @@ export const Modal = (props: ModalProps) => {
                 setIsClosing(false);
             }, ANIMATION_DELAY)
         }
-    }, [])
+    }, [onClose])
+
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         const { key } = e;
         if (key === 'Escape') {
