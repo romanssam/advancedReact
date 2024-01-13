@@ -14,16 +14,19 @@ export const Navbar = ({className}: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
 
     const toggleModal = useCallback(() => {
-        setIsAuthModal(prev => !prev)
+        setIsAuthModal(prev => !prev);
+    }, [])
+    const closeModal = useCallback(() => {
+        setIsAuthModal(false);
     }, [])
     return (
         <>
             <nav className={classNames(styles.Navbar, {}, [className])}>
                 <ThemeSwitcher />
 
-                <Button theme={ThemeButton.BACKGROUND}  onClick={() => setIsAuthModal(true)}>Открыть модалку</Button>
+                <Button theme={ThemeButton.BACKGROUND}  onClick={toggleModal}>Открыть модалку</Button>
 
-                <Modal isOpen={isAuthModal} onClose={() => setIsAuthModal(false)} >
+                <Modal isOpen={isAuthModal} onClose={closeModal}>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto consequatur debitis doloremque eius eveniet, ipsam ipsum laborum, libero, nemo officiis optio quasi soluta veniam vero. Ipsam maxime neque temporibus!
                 </Modal>
             </nav>
