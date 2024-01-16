@@ -7,7 +7,6 @@ interface BugButtonProps {
 
 export const BugButton = ({className}: BugButtonProps) => {
     const [error, setError] = useState(false)
-
     const throwError = () => setError(true)
 
     useEffect(() => {
