@@ -15,9 +15,12 @@
 }
 
 .background {
-  background-color: var(--colors-bg);
-  color: var(--colors-text);
+  background-color: var(--colors-bg-inverted);
+  color: var(--colors-text-inverted);
   border: none;
+  border-radius: var(--border-radius);
+
+  padding: var(--btn-padding);
 }
 
 .backgroundInverted {
