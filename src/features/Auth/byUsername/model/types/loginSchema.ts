@@ -3,5 +3,5 @@ export interface LoginSchema {
     password: string;
     isLoading: boolean;
     rememberMe?: boolean;
-    error?: string | unknown;
+    error?: string;
 }

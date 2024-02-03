@@ -3,6 +3,7 @@ import {StateSchema} from "./StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
 import {loginReducer} from "features/Auth/byUsername";
+import thunkMiddleware from 'redux-thunk';
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,

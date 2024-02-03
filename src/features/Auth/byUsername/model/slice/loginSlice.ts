@@ -25,11 +25,11 @@ export const loginSlice = createSlice({
             })
             .addCase(loginByUsername.fulfilled, (state, action) => {
                 state.isLoading = false;
+                state.username = action.payload.username;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false;
-                // TODO: check for type inside schema
-                state.error = action.payload;
+                state.error = 'Неверные реквизиты для входа';
             });
     }
 })

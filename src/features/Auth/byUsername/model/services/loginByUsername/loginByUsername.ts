@@ -1,7 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from 'axios'
 import {User} from "entities/User";
-import {GetThunkAPI} from "@reduxjs/toolkit/dist/createAsyncThunk";
 
 interface LoginByUsernameProps {
     username: string;
