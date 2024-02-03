@@ -1,12 +1,12 @@
 import {classNames} from "shared/lib/classNames/classNames";
 import styles from './Snackbar.module.scss';
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import {SyntheticEvent, useCallback, useRef, useState} from "react";
+import {ReactNode, SyntheticEvent, useCallback, useRef, useState} from "react";
 
 interface SnackbarProps extends SnackbarOrigin {
     className?: string;
     open: boolean;
-    message: string;
+    message: string | ReactNode;
     autoHideDuration: number;
     onClose?: () => void;
 }
