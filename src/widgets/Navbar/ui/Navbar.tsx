@@ -6,6 +6,7 @@ import {Button, ThemeButton} from "shared/ui/Button/Button";
 import {LoginModal} from "features/Auth/byUsername";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserAuthData, userActions} from "entities/User";
+import {Portal} from "shared/ui/Portal/Portal";
 
 interface NavbarProps {
     className?: string;
@@ -43,7 +44,7 @@ export const Navbar = ({className}: NavbarProps) => {
 
                 <Button theme={ThemeButton.BACKGROUND}  onClick={toggleModal}>Войти</Button>
 
-                <LoginModal isOpen={isAuthModal} onClose={closeModal} />
+                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={closeModal} />}
             </nav>
         </>
     );
