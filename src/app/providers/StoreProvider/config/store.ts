@@ -2,7 +2,7 @@ import {configureStore, ReducersMapObject} from '@reduxjs/toolkit'
 import {StateSchema} from "./StateSchema";
 import {counterReducer} from "entities/Counter";
 import {userReducer} from "entities/User";
-import thunkMiddleware from 'redux-thunk';
+
 import {createReducerManager} from "app/providers/StoreProvider/config/reducerManager";
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
@@ -22,3 +22,5 @@ export function createReduxStore(initialState?: StateSchema) {
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
