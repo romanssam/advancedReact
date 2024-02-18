@@ -36,6 +36,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first_name": "Roma",
+    "last_name": "Lolov",
+    "age": 23,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Yekaterinburg",
+    "username": "troubledyouthh",
+    "avatar": "https://oir.mobi/uploads/posts/2021-03/1616741653_10-p-khaker-krasivo-12.jpg"
   }
 }

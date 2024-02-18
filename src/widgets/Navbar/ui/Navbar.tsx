@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import {classNames} from "shared/lib/classNames/classNames";
 import styles from './Navbar.module.scss';
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
@@ -11,7 +11,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({className}: NavbarProps) => {
+export const Navbar = memo(({className}: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
@@ -47,4 +47,4 @@ export const Navbar = ({className}: NavbarProps) => {
             </nav>
         </>
     );
-};
+});
