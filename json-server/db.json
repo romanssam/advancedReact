@@ -36,8 +36,8 @@
     }
   ],
   "profile": {
-    "first_name": "Roma",
-    "last_name": "Lolov",
+    "firstname": "Roma",
+    "lastname": "Lolov",
     "age": 23,
     "currency": "RUB",
     "country": "Russia",

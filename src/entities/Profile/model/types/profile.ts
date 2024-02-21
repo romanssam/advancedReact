@@ -1,8 +1,8 @@
 import {Country, Currency} from "shared/consts/common";
 
 export interface Profile {
-    first_name: string;
-    last_name: string;
+    firstname: string;
+    lastname: string;
     age: number;
     currency: Currency;
     country: Country;

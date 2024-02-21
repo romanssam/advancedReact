@@ -21,7 +21,7 @@ export const Sidebar = ({className}: SidebarProps) => {
             <div>Язык: Русский</div>
 
             {SidebarItemsList.map((item) => (
-                <SidebarItem item={item}/>
+                <SidebarItem item={item} key={item.path}/>
             ))}
             <Button theme={ThemeButton.BACKGROUND} onClick={onToggle} className={styles.collapsedBtn}>
                 {collapsed ? ">" : "<"}
