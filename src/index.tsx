@@ -8,7 +8,7 @@ import ErrorBoundary from "app/providers/ErrorBoundary/ui/ErrorBoundary";
 import {StoreProvider} from "app/providers/StoreProvider";
 
 const domNode = document.getElementById('root');
-const root = createRoot(domNode);
+const root = createRoot(domNode as Element);
 
 root.render(
         <BrowserRouter>

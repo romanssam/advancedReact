@@ -54,7 +54,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [isOpen, onKeyDown])
 
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [styles.opened]: isOpen,
         [styles.isClosing]: isClosing,
     }

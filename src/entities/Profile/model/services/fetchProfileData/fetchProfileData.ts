@@ -7,7 +7,6 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
     'login/loginByUsername',
     async (_, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
-
         try {
             const response = await extra.api.get<Profile>('/profile');
 
