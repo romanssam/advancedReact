@@ -18,6 +18,6 @@ export const Input = memo((props: InputProps) => {
         onChange?.(event.target.value);
     }
     return (
-        <input type={type} readOnly={readonly} value={value} className={className} placeholder={placeholder} onChange={onChangeHandler} {...other} />
+        <input type={type} readOnly={readonly} value={value} className={classNames(styles.Input, {}, [className])} placeholder={placeholder} onChange={onChangeHandler} {...other} />
     );
 });

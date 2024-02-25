@@ -1,5 +1,8 @@
 .ProfileCard {
+  padding: 24px;
 
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 .header {
@@ -13,4 +16,17 @@
   gap: 2rem;
 
   margin-top: 24px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }

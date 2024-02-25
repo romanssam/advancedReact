@@ -1,0 +1,11 @@
+.Input {
+  border: none;
+  outline: none;
+
+  padding: 12px;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+
+  background-color: var(--colors-bg-inverted);
+  color: var(--colors-text-inverted);
+}

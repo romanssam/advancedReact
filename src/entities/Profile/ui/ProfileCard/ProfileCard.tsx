@@ -5,7 +5,7 @@ import {getProfileData} from "../../model/selectors/getProfileData/getProfileDat
 import {getProfileIsLoading} from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileError} from "../../model/selectors/getProfileError/getProfileError";
 import {PageLoader} from "widgets/PageLoader/ui/PageLoader";
-import {Text} from 'shared/ui/Text/Text'
+import {Text, TextAlign} from 'shared/ui/Text/Text'
 import {Button, ThemeButton} from "shared/ui/Button/Button";
 import {Input} from "shared/ui/Input/Input";
 
@@ -18,8 +18,25 @@ export const ProfileCard = ({className}: ProfileCardProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
 
-    if (isLoading) return <PageLoader/>
-    if (error) return <div>{error}</div>
+    if (isLoading) {
+        return (
+            <div className={classNames(styles.ProfileCard, {}, [className, styles.loading])}>
+                <PageLoader />
+            </div>
+        )
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
+                <Text
+                    title={'Произошла ошибка'}
+                    text={'Попробуйте обновить страницу'}
+                    textAlign={TextAlign.CENTER}
+                />
+            </div>
+        )
+    }
 
     return (
         <div className={classNames(styles.ProfileCard, {}, [className])}>
