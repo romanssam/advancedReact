@@ -33,3 +33,12 @@
   opacity: 0.5;
   pointer-events: none;
 }
+
+.outline {
+  background-color: transparent;
+  color: var(--colors-text);
+  border: 1px solid var(--colors-bg-inverted);
+  border-radius: var(--border-radius);
+
+  padding: var(--btn-padding);
+}
