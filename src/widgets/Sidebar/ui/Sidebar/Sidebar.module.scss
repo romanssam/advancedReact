@@ -1,12 +1,17 @@
 .Sidebar {
   position: relative;
-  
+
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--colors-bg);
   width: var(--sidebar-width);
   height: calc(100vh - 65px);
   box-shadow: var(--shadow);
 
   transition: width .4s ease;
+
+  padding: 24px;
 }
 
 .collapsed {
@@ -19,3 +24,13 @@
   right: -9px;
 }
 
+.language {
+  margin-top: auto;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

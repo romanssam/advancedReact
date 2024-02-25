@@ -18,14 +18,15 @@ export const Sidebar = ({className}: SidebarProps) => {
 
     return (
         <div className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
-            <div>Язык: Русский</div>
-
-            {SidebarItemsList.map((item) => (
-                <SidebarItem item={item} key={item.path}/>
-            ))}
+            <div className={styles.list}>
+                {SidebarItemsList.map((item) => (
+                    <SidebarItem collapsed={collapsed} item={item} key={item.path}/>
+                ))}
+            </div>
             <Button theme={ThemeButton.BACKGROUND} onClick={onToggle} className={styles.collapsedBtn}>
                 {collapsed ? ">" : "<"}
             </Button>
+            <div className={styles.language}>Язык: Русский</div>
         </div>
     );
 };
