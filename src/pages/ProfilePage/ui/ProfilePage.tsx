@@ -3,6 +3,7 @@ import styles from './ProfilePage.module.scss';
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {fetchProfileData, ProfileCard, profileReducer} from "entities/Profile";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
+import {ProfilePageHeader} from '../ProfilePageHeader/ProfilePageHeader'
 import {useEffect} from "react";
 
 export interface ProfilePageProps {
@@ -22,6 +23,7 @@ const ProfilePage = ({className}: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
             <div className={classNames(styles.ProfilePage, {}, [className])}>
+                <ProfilePageHeader />
                 <ProfileCard />
             </div>
         </DynamicModuleLoader>
