@@ -1,0 +1,14 @@
+.ButtonsGroup {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.right {
+    margin-left: auto;
+}

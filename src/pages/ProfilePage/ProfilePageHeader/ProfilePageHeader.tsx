@@ -7,6 +7,7 @@ import {getProfileReadonly, profileActions} from "entities/Profile";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
 import {useCallback} from "react";
 import {updateProfileData} from "entities/Profile/model/services/updateProfileData/updateProfileData";
+import {ButtonAlign, ButtonsGroup} from "shared/ui/ButtonsGroup/ButtonsGroup";
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -35,10 +36,10 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
                 (<Button onClick={onEdit} theme={ThemeButton.OUTLINE}>Редактировать</Button>)
                     :
                 (
-                    <>
+                    <ButtonsGroup align={ButtonAlign.RIGHT}>
                         <Button onClick={onCancelEdit} theme={ThemeButton.BACKGROUND}>Отменить</Button>
                         <Button onClick={onSave} theme={ThemeButton.BACKGROUND}>Сохранить</Button>
-                    </>
+                    </ButtonsGroup>
                 )
             }
         </div>

@@ -9,3 +9,7 @@
   background-color: var(--colors-bg-inverted);
   color: var(--colors-text-inverted);
 }
+
+input[readonly] {
+  cursor: not-allowed;
+}
