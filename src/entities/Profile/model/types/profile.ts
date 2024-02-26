@@ -1,4 +1,5 @@
-import {Country, Currency} from "shared/consts/common";
+import {Currency} from "entities/CurrencySelect/model/types/currency";
+import {Country} from "entities/CountySelect/model/types/country";
 
 export interface Profile {
     firstname?: string;

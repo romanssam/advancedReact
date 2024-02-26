@@ -1,14 +1,14 @@
 import {classNames} from "shared/lib/classNames/classNames";
 import styles from './ProfileCard.module.scss';
-import {useSelector} from "react-redux";
-import {getProfileData} from "../../model/selectors/getProfileData/getProfileData";
-import {getProfileIsLoading} from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
-import {getProfileError} from "../../model/selectors/getProfileError/getProfileError";
-import {getProfileReadonly} from "../../model/selectors/getProfileReadonly/getProfileReadonly";
 import {PageLoader} from "widgets/PageLoader/ui/PageLoader";
 import {Text, TextAlign} from 'shared/ui/Text/Text'
 import {Input} from "shared/ui/Input/Input";
 import {Profile} from "../../model/types/profile";
+import {Avatar} from "shared/ui/Avatar/Avatar";
+import {Currency} from "entities/CurrencySelect";
+import {CurrencySelect} from "entities/CurrencySelect";
+import {Country} from "entities/CountySelect";
+import {CountrySelect} from "entities/CountySelect/ui/CountySelect";
 
 interface ProfileCardProps {
     className?: string;
@@ -18,6 +18,11 @@ interface ProfileCardProps {
     readonly?: boolean;
     onChangeFirstname?: (value?: string) => void;
     onChangeLastname?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeCurrency?: (value?: Currency) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -28,7 +33,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
         error,
         readonly,
         onChangeFirstname,
-        onChangeLastname
+        onChangeLastname,
+        onChangeUsername,
+        onChangeCity,
+        onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry
     } = props;
 
     if (isLoading) {
@@ -54,6 +64,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(styles.ProfileCard, {}, [className])}>
             <div className={styles.items}>
+                <div className={styles.avatarWrapper}>
+                    {data?.avatar && <Avatar src={data.avatar} alt={'Аватар'}/>}
+                </div>
                 <div className={styles.inputWrapper}>
                     <span className={styles.label}>Имя</span>
                     <Input onChange={onChangeFirstname} value={data?.firstname} placeholder={'Ваше имя'} readonly={readonly} />
@@ -64,16 +77,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 </div>
                 <div className={styles.inputWrapper}>
                     <span className={styles.label}>Ник</span>
-                    <Input value={data?.username} placeholder={'Ваш ник'} readonly={readonly} />
+                    <Input onChange={onChangeUsername} value={data?.username} placeholder={'Ваш ник'} readonly={readonly} />
                 </div>
                 <div className={styles.inputWrapper}>
                     <span className={styles.label}>Валюта</span>
                     <Input value={data?.currency} placeholder={'Ваша валюта'} readonly={readonly} />
                 </div>
                 <div className={styles.inputWrapper}>
-                    <span className={styles.label}>Возраст</span>
-                    <Input value={data?.age} placeholder={'Ваша возраст'} readonly={readonly} />
+                    <span className={styles.label}>Город</span>
+                    <Input onChange={onChangeCity} value={data?.city} placeholder={'Город'} readonly={readonly} />
                 </div>
+                <div className={styles.inputWrapper}>
+                    <span className={styles.label}>Аватар</span>
+                    <Input onChange={onChangeAvatar} value={data?.avatar} placeholder={'Аватар'} readonly={readonly} />
+                </div>
+
+                <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readonly={readonly} />
+                <CountrySelect value={data?.country} onChange={onChangeCountry} readonly={readonly} />
             </div>
         </div>
     );
