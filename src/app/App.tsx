@@ -1,16 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import './styles/index.scss';
 import {useTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
-import {Sidebar} from "widgets/Sidebar";
-import {Modal} from "shared/ui/Modal/Modal";
-import {useDispatch} from "react-redux";
+import {Sidebar, sidebarActions} from "widgets/Sidebar";
 import {userActions} from "entities/User";
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
 
 const App = () => {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(userActions.initAuthData());

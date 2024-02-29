@@ -5,7 +5,7 @@ import {Button, ThemeButton} from "shared/ui/Button/Button";
 import {useSelector} from "react-redux";
 import {getProfileReadonly, profileActions} from "entities/Profile";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
-import {useCallback} from "react";
+import {memo, useCallback} from "react";
 import {updateProfileData} from "entities/Profile/model/services/updateProfileData/updateProfileData";
 import {ButtonAlign, ButtonsGroup} from "shared/ui/ButtonsGroup/ButtonsGroup";
 
@@ -13,7 +13,7 @@ interface ProfilePageHeaderProps {
     className?: string;
 }
 
-export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
+export const ProfilePageHeader = (({className}: ProfilePageHeaderProps) => {
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
 
@@ -44,4 +44,4 @@ export const ProfilePageHeader = ({className}: ProfilePageHeaderProps) => {
             }
         </div>
     );
-};
+});

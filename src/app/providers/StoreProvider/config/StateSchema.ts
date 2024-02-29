@@ -6,10 +6,12 @@ import {ProfileSchema} from "entities/Profile/model/types/profile";
 import type {To} from "@remix-run/router";
 import type {NavigateOptions} from "react-router/dist/lib/context";
 import {AxiosInstance} from "axios";
+import {SidebarSchema} from "widgets/Sidebar";
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    sidebar: SidebarSchema;
 
     // async
     loginForm?: LoginSchema;

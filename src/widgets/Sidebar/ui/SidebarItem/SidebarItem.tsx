@@ -3,6 +3,8 @@ import styles from './SidebarItem.module.scss';
 import {AppLink} from "shared/ui/AppLink/AppLink";
 import {SidebarItemType} from "../../model/items";
 import {memo} from "react";
+import {useSelector} from "react-redux";
+import {getUserAuthData} from "entities/User";
 
 interface SidebarItemProps {
     classname?: string
@@ -11,8 +13,14 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo(({item, collapsed, classname}: SidebarItemProps) => {
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
+
     const mods: Mods = {
-        [styles.collapsed]: collapsed
+        /*[styles.collapsed]: collapsed*/
     };
 
     return (

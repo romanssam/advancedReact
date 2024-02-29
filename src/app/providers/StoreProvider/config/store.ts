@@ -7,6 +7,7 @@ import {createReducerManager} from "app/providers/StoreProvider/config/reducerMa
 import {$api} from "shared/api/api";
 import type {To} from "@remix-run/router";
 import type {NavigateOptions} from "react-router/dist/lib/context";
+import {sidebarReducer} from "widgets/Sidebar";
 export function createReduxStore(
     initialState?: StateSchema,
     navigate?: (to: To, options?: NavigateOptions) => void,
@@ -14,6 +15,7 @@ export function createReduxStore(
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
+        sidebar: sidebarReducer,
     }
 
     const reducerManager = createReducerManager(rootReducers);
