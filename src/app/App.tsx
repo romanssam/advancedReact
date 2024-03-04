@@ -4,12 +4,18 @@ import {useTheme} from "app/providers/ThemeProvider";
 import {AppRouter} from "app/providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar, sidebarActions} from "widgets/Sidebar";
-import {userActions} from "entities/User";
+import {getUserAuthData, userActions} from "entities/User";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
+import {useSelector} from "react-redux";
 
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
+    const isAuth = useSelector(getUserAuthData);
+
+    useLayoutEffect(() => {
+        dispatch(sidebarActions.initCollapsed());
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -23,9 +29,9 @@ const App = () => {
 
     return (
         <div className='app'>
-            <Navbar />
+            {isAuth && <Navbar />}
             <div className={'content-page'}>
-                <Sidebar />
+                {isAuth && <Sidebar />}
                 <AppRouter />
             </div>
         </div>

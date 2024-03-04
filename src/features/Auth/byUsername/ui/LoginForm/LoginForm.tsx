@@ -18,7 +18,7 @@ import {useAppDispatch} from "shared/lib/hooks/useAppDispatch";
 
 export interface LoginFormProps {
     className?: string;
-    onSuccess: () => void;
+    onSuccess?: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -44,7 +44,7 @@ const LoginForm = memo(({className, onSuccess}: LoginFormProps) => {
         const result = await dispatch(loginByUsername({username, password}));
 
         if (result.meta.requestStatus === 'fulfilled')  {
-            onSuccess();
+            onSuccess?.();
         }
     }, [onSuccess, dispatch, username, password])
 
