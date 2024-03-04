@@ -5,7 +5,7 @@ import {NotFoundPage} from "pages/NotFoundPage";
 import {ProfilePage} from "pages/ProfilePage";
 import {LoginPage} from "pages/LoginPage";
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
     authOnly?: boolean;
 }
 
