@@ -5,7 +5,7 @@ import {
     fetchProfileData,
     getProfileError, getProfileForm,
     getProfileIsLoading,
-    getProfileReadonly, profileActions,
+    getProfileReadonly, getProfileValidateErrors, profileActions,
     ProfileCard,
     profileReducer
 } from "entities/Profile";
@@ -15,6 +15,8 @@ import {useCallback, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {Currency} from "entities/CurrencySelect";
 import {Country} from "entities/CountySelect";
+import {Toast} from "shared/ui/Snackbar/Toast";
+import {Text, TextTheme} from "shared/ui/Text/Text";
 
 export interface ProfilePageProps {
     className?: string;
@@ -29,7 +31,8 @@ const ProfilePage = ({className}: ProfilePageProps) => {
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
-    const readonly = useSelector(getProfileReadonly)
+    const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
 
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -67,6 +70,9 @@ const ProfilePage = ({className}: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
             <div className={classNames(styles.ProfilePage, {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((error) => (
+                    <Toast key={error} autoHideDuration={3000} open={true} horizontal={'right'} vertical={'top'} message={<Text text={error} theme={TextTheme.ERROR} />}/>
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
