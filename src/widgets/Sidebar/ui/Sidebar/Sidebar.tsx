@@ -21,8 +21,6 @@ export const Sidebar = ({className}: SidebarProps) => {
         dispatch(sidebarActions.setCollapsed(!collapsed));
     }, [collapsed, dispatch]);
 
-    console.log(collapsed);
-
     return (
         <div className={classNames(styles.Sidebar, {[styles.collapsed]: collapsed}, [className])}>
             <div className={styles.list}>

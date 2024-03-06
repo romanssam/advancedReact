@@ -5,50 +5,32 @@ import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {Button, ThemeButton} from "shared/ui/Button/Button";
 import {LoginModal} from "features/Auth/byUsername";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserAuthData, userActions} from "entities/User";
+import {getUserRole, getUserUsername, userActions} from "entities/User";
 import {useNavigate} from "react-router-dom";
 import {RoutePath} from "shared/config/routeConfig/routeConfig";
+import {UserInfo} from "widgets/UserInfo";
 
 interface NavbarProps {
     className?: string;
 }
 
 export const Navbar = memo(({className}: NavbarProps) => {
-    const navigate = useNavigate();
-    const [isAuthModal, setIsAuthModal] = useState(false);
-    const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const username = useSelector(getUserUsername);
+    const role = useSelector(getUserRole);
 
-    const toggleModal = useCallback(() => {
-        setIsAuthModal(prev => !prev);
-    }, [])
-    const closeModal = useCallback(() => {
-        setIsAuthModal(false);
-    }, []);
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
         navigate(RoutePath.login);
     }, [dispatch])
 
-    if (authData) {
-        return (
-            <nav className={classNames(styles.Navbar, {}, [className])}>
-                <ThemeSwitcher />
-
-                <Button theme={ThemeButton.BACKGROUND}  onClick={onLogout}>Выйти</Button>
-            </nav>
-        )
-    }
-
     return (
-        <>
-            <nav className={classNames(styles.Navbar, {}, [className])}>
-                <ThemeSwitcher />
+        <nav className={classNames(styles.Navbar, {}, [className])}>
+            <ThemeSwitcher />
 
-                <Button theme={ThemeButton.BACKGROUND}  onClick={toggleModal}>Войти</Button>
-
-                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={closeModal} />}
-            </nav>
-        </>
-    );
+            <UserInfo username={username} role={role} />
+            <Button theme={ThemeButton.BACKGROUND}  onClick={onLogout}>Выйти</Button>
+        </nav>
+    )
 });
