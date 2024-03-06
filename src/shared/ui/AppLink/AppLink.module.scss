@@ -1,0 +1,11 @@
+.AppLink {
+  padding: 8px;
+  border-right: var(--border-radius);
+
+  background-color: var(--colors-bg-inverted);
+  color: var(--colors-text-inverted);
+}
+
+.active {
+  color: var(--colors-active-link);
+}
